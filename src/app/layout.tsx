@@ -1,30 +1,37 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-import { Header } from "@/components/Navigation/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const barbra = localFont({
+  src: "../../public/fonts/Barbra/Barbra-Regular.otf",
+  variable: "--font-barbra",
+});
+const barbraBold = localFont({
+  src: "../../public/fonts/Barbra/Barbra-High.otf",
+  variable: "--font-barbra-bold",
+});
+const cabinet = localFont({
+  src: "../../public/fonts/CabinetGrotesk-Regular.woff2",
+  variable: "--font-cabinetRegular",
+});
+const cabinetBold = localFont({
+  src: "../../public/fonts/CabinetGrotesk-Bold.woff2",
+  variable: "--font-cabinetBold",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
+// Metadata
 export const metadata: Metadata = {
-  title: {
-    default: "Reetta Salmela",
-    template: "Reetta Salmela | %s",
-  },
-  description: "Reetta Salmela's personal website",
-  keywords: ["Reetta Salmela", "personal website"],
+  title: "Reetta Salmela",
+  description: "Portfolio of Reetta Salmela, journalist.",
+  keywords: ["portfolio", "journalist", "Reetta Salmela"],
+  authors: [{ name: "Reetta Salmela", url: "https://reettasalmela.fi" }],
+  creator: "Don Hämäläinen",
+  publisher: "Reetta Salmela",
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://reettasalmela.fi",
+    locale: "fi-FI",
     siteName: "Reetta Salmela",
+    url: "https://reettasalmela.fi",
   },
 };
 
@@ -41,13 +48,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header />
-        {children}
-      </body>
+    <html
+      lang="fi"
+      className={`${barbra.variable} ${barbraBold.variable} ${cabinet.variable} ${cabinetBold.variable}`}
+    >
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
