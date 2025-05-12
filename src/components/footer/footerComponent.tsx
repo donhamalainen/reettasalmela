@@ -3,8 +3,6 @@
 "use client";
 import React from "react";
 import { useSanityFetch } from "@/hook/useSanityFetch";
-import { BiLogoLinkedinSquare } from "react-icons/bi";
-import { FaInstagramSquare } from "react-icons/fa";
 
 export default function FooterComponent() {
   const { data: contact } = useSanityFetch(
