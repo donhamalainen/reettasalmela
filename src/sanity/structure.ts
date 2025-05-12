@@ -23,7 +23,10 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem("project").title("Projektit").icon(MdWork),
       S.documentTypeListItem("gallery")
         .title("Kuvagalleria")
-        .icon(MdPhotoLibrary),
+        .icon(MdPhotoLibrary)
+        .child(
+          S.document().schemaType("gallery").documentId("singleton-gallery")
+        ),
       S.documentTypeListItem("video").title("Videot").icon(MdVideocam),
       // Filter out the default document types
       ...S.documentTypeListItems().filter(

@@ -14,6 +14,8 @@
 
   --text-parag: clamp(1rem, 0.714vw + 0.857rem, 1.5rem);
   --text-parag-sm: clamp(0.875rem, 0.893vw + 0.696rem, 1.5rem);
+  --text-parag-xs: clamp(1.125rem, 0.893vw + 0.946rem, 1.75rem);
+  --text-background-xl: clamp(2.375rem, 7.321vw + 0.911rem, 7.5rem);
   /* COLORS */
   --color-background: #f7f7f2;
   --color-foreground: #222826;

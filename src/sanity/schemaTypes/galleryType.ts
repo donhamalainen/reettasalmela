@@ -11,8 +11,8 @@ export const galleryType = defineType({
       title: "Kuvat",
       type: "array",
       of: [{ type: "image", options: { hotspot: true } }],
-      description: "Raahaa kuvia vaihtaaksesi niiden järjestystä galleriassa.",
+      description:
+        "Lisää kuvia ja muuta järjestystä. Poistaminen ei ole sallittua.",
     }),
-    defineField({ name: "description", title: "Kuvaus", type: "text" }),
   ],
 });
