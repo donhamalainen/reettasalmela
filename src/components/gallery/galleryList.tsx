@@ -39,8 +39,6 @@ export default function GalleryList() {
           : gallery.map((img: any, idx: number) => {
               const portrait = isPortrait(img);
               const imgKey = img._key || idx;
-              const canShow =
-                idx === 0 || loadedImages[gallery[idx - 1]?._key || idx - 1];
               return (
                 <li
                   key={imgKey}
@@ -56,19 +54,18 @@ export default function GalleryList() {
                   {!loadedImages[imgKey] && (
                     <div className="absolute inset-0 bg-gray-200 animate-pulse z-10" />
                   )}
-                  {canShow && (
-                    <Image
-                      src={urlFor(img).url()}
-                      alt="Gallery"
-                      fill
-                      priority
-                      className="object-cover"
-                      onLoad={() =>
-                        setLoadedImages((prev) => ({ ...prev, [imgKey]: true }))
-                      }
-                      sizes="90vw"
-                    />
-                  )}
+
+                  <Image
+                    src={urlFor(img).url()}
+                    alt="Gallery"
+                    fill
+                    priority
+                    className="object-cover"
+                    onLoad={() =>
+                      setLoadedImages((prev) => ({ ...prev, [imgKey]: true }))
+                    }
+                    sizes="90vw"
+                  />
                 </li>
               );
             })}
